@@ -12,8 +12,8 @@ My goal was to compare the performance and results of both methods on the same d
 #### Result:
 ![Run Results](run_results.png)
 
-Serial Run: approx. 48 secons
-Parallel Run: approx. 19 seconds
+- Serial Run: approx. 48 secons
+- Parallel Run: approx. 19 seconds
 
 ---
 
@@ -28,7 +28,7 @@ Parallel Run: approx. 19 seconds
 - `compare_speed.py`  
   Runs both `serial_processing.py` and `parallel_processing.py` in sequence, printing the name of each script before execution. Each script outputs its own word counts and runtime metrics.
 
-- `generate_words.py`
+- `generate_files.py`
   Generates files with 170000 words each. approx. 100MB each
 
 - `data/`  
@@ -54,3 +54,4 @@ MapReduce is a programming model designed to process large datasets efficiently 
 
 This model simplifies parallel processing by handling distribution, fault tolerance, and result aggregation, enabling scalable computation over big data.
 
+Paper: [MapReduce: Simplified Data Processing on Large Clusters](https://web.mit.edu/6.1800/www/papers/mapreduce-osdi04.pdf)
