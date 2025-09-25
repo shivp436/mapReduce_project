@@ -19,9 +19,14 @@ def merge_counts(counts_list):
             total_count[word] += count
     return total_count
 
-def parallel_word_count(directory, num_workers=10):
+def parallel_word_count(directory, num_workers=15):
+    # as per the paper: ideally each task should be 16-64MB of memory
+    # so here, each file is 100MB, let's take a sweet spot of 50MB
+    # so each file should be divided into 2 chunks (2*15) = 30 Workers
+    # since we cannot make chunks of each file now, let's just use 15 workers
     files = [os.path.join(directory, f) for f in sorted(os.listdir(directory)) if os.path.isfile(os.path.join(directory, f))]
-
+    
+    print(f"Total {num_workers} workers")
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         results = list(executor.map(count_words_in_file, files))
 
@@ -40,7 +45,7 @@ if __name__ == "__main__":
     start_time = time.time()
     total_counts = parallel_word_count(dir_path)
     end_time = time.time()
-
+    
     # Print all words with counts
     for word, count in sorted(total_counts.items()):
         print(f"{word}: {count}")

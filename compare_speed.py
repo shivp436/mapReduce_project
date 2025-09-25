@@ -1,6 +1,6 @@
 import subprocess
 
-scripts = ["serial_processing.py", "parallel_processing.py"]
+scripts = ["serial_processing.py", "parallel_processing.py", "parallel_processing_v2.py"]
 
 for script in scripts:
     print(f"\n--- Running {script} ---\n")
