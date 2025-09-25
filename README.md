@@ -39,6 +39,7 @@ My goal was to compare the performance and results of both methods on the same d
 ## How to Run
 
 ```bash
+python generate_files.py
 python compare_speed.py
 ```
 
